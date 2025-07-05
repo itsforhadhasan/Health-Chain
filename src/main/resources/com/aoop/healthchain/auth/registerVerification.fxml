@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.auth.RegisterVerificationController">
+    <HBox spacing="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <!-- Left Illustration Panel -->
+        <VBox alignment="CENTER" prefWidth="500" spacing="20" style="-fx-background-color: #ffffff;">
+            <ImageView fitHeight="300" fitWidth="400">
+                <image>
+                    <Image url="@../images/undraw_medicine_b-1-ol.png" />
+                </image>
+            </ImageView>
+        </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="514.0" prefWidth="500" spacing="10.0" style="-fx-background-color: #d3dee1;">
+         <padding>
+            <Insets top="40.0" />
+         </padding>
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/a-modern-logo-design-featuring-interlock_hYG_qQLNQgWLcALzeK93Xw_6NKVJ-gVSTO-mIIuAkIC6w-removebg.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="10">
+               <children>
+                  <Label style="-fx-font-size: 14px; -fx-text-fill: #606060;" text="Emergency and General Hospital" />
+               </children>
+            </VBox>
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Verification Code" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #606060;" text="Enter received verification code to continue" />
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="500.0" spacing="16.0">
+               <children>
+                  <TextField fx:id="code1" alignment="CENTER" onKeyReleased="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="code2" alignment="CENTER" layoutX="229.0" layoutY="10.0" onKeyTyped="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="code3" alignment="CENTER" layoutX="268.0" layoutY="10.0" onInputMethodTextChanged="#checkCode" onKeyTyped="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="code4" alignment="CENTER" layoutX="308.0" layoutY="10.0" onInputMethodTextChanged="#checkCode" onKeyTyped="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="code5" alignment="CENTER" layoutX="347.0" layoutY="10.0" onInputMethodTextChanged="#checkCode" onKeyTyped="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="code6" alignment="CENTER" layoutX="386.0" layoutY="10.0" onInputMethodTextChanged="#checkCode" onKeyTyped="#checkCode" prefHeight="60.0" prefWidth="62.0" promptText="0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <VBox spacing="15.0">
+               <padding>
+                  <Insets left="80.0" right="80.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="10" />
+            <Button onAction="#confirmVerification" prefWidth="250" style="-fx-background-color: #008cba; -fx-text-fill: white;" text="Continue" />
+         </children>
+      </VBox>
+    </HBox>
+</AnchorPane>

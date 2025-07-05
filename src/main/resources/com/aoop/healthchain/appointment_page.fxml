@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="20" alignment="TOP_CENTER" style="-fx-padding: 24;" fx:controller="com.aoop.healthchain.PatientAppointmentController">
+    <Label text="My Appointments" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+    <TableView fx:id="appointmentsTable" prefHeight="200" prefWidth="800">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100"/>
+            <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="150"/>
+            <TableColumn fx:id="departmentColumn" text="Department" prefWidth="120"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+        </columns>
+    </TableView>
+    
+    <Separator/>
+    
+    <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+        <Label text="Book New Appointment" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        
+        <HBox spacing="30" alignment="CENTER_LEFT">
+            <!-- Available Doctors Section -->
+            <VBox spacing="10" prefWidth="400">
+                <Label text="Available Doctors" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="doctorsTable" prefHeight="200" prefWidth="380">
+                    <columns>
+                        <TableColumn fx:id="doctorNameColumn" text="Doctor Name" prefWidth="150"/>
+                        <TableColumn fx:id="specializationColumn" text="Specialization" prefWidth="120"/>
+                        <TableColumn fx:id="doctorDepartmentColumn" text="Department" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+            
+            <!-- Booking Form Section -->
+            <VBox spacing="10" prefWidth="300">
+                <Label text="Appointment Details" style="-fx-font-weight: bold;"/>
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Selected Doctor:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="selectedDoctorLabel" text="None selected" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-text-fill: #666;"/>
+                    
+                    <Label text="Department:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="departmentField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Enter department"/>
+                    
+                    <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    
+                    <Label text="Time:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="timeComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Select time"/>
+                    
+                    <Button fx:id="bookButton" text="Book Appointment" GridPane.rowIndex="4" GridPane.columnIndex="1" 
+                            style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                </GridPane>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox> 

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane fx:id="patientDashboardBorderPane" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.PatientDashboardController">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar">
+            <HBox alignment="CENTER">
+                <ImageView fitHeight="80" fitWidth="80" styleClass="profile-image">
+                    <Image url="@images/default_male.png" />
+                </ImageView>
+            </HBox>
+
+            <Label fx:id="userNameLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-name" text="John Doe" />
+            <Label fx:id="userEmailLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-email" text="john@example.com" />
+
+            <VBox styleClass="menu-items">
+                <Button onAction="#handleOverview" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" fill="#cbd5e1" />
+                            <Label text="Overview" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleAppointments" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" fill="#cbd5e1" />
+                            <Label text="Appointments" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handlePrescriptions" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" fill="#cbd5e1" />
+                            <Label text="Prescriptions" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleChat" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" fill="#cbd5e1" />
+                            <Label text="Chat with Doctors" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleSettings" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" fill="#cbd5e1" />
+                            <Label text="Settings" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button onAction="#handleLogout" styleClass="logout-button">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <SVGPath content="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" fill="white" />
+                        <Label text="Logout" styleClass="logout-label" textFill="white" />
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="header">
+                <Label styleClass="page-title" text="Dashboard" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="notification-button">
+                    <graphic>
+                        <SVGPath content="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" fill="#1e293b" />
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <!-- Quick Stats -->
+            <GridPane styleClass="stats-container">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33.33" />
+                    <ColumnConstraints percentWidth="33.33" />
+                    <ColumnConstraints percentWidth="33.33" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+
+                <!-- Appointments Card -->
+                <StackPane styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <HBox styleClass="card-content" spacing="15">
+                        <StackPane styleClass="icon-circle" style="-fx-background-color: #dbeafe; -fx-background-radius: 50%; -fx-min-width: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-max-height: 50; -fx-alignment: center;">
+                            <SVGPath content="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" fill="#3b82f6" />
+                        </StackPane>
+                        <VBox>
+                            <Label styleClass="stat-title" text="Upcoming Appointments" />
+                            <Label fx:id="appointmentCountLabel" styleClass="stat-value" text="2" />
+                        </VBox>
+                    </HBox>
+                </StackPane>
+
+                <!-- Prescriptions Card -->
+                <StackPane styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <HBox styleClass="card-content" spacing="15">
+                        <StackPane styleClass="icon-circle" style="-fx-background-color: #dcfce7; -fx-background-radius: 50%; -fx-min-width: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-max-height: 50; -fx-alignment: center;">
+                            <SVGPath content="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" fill="#10b981" />
+                        </StackPane>
+                        <VBox>
+                            <Label styleClass="stat-title" text="Active Prescriptions" />
+                            <Label fx:id="prescriptionCountLabel" styleClass="stat-value" text="3" />
+                        </VBox>
+                    </HBox>
+                </StackPane>
+
+                <!-- Tests Card -->
+                <StackPane styleClass="stat-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <HBox styleClass="card-content" spacing="15">
+                        <StackPane styleClass="icon-circle" style="-fx-background-color: #fee2e2; -fx-background-radius: 50%; -fx-min-width: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-max-height: 50; -fx-alignment: center;">
+                            <SVGPath content="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" fill="#ef4444" />
+                        </StackPane>
+                        <VBox>
+                            <Label styleClass="stat-title" text="Recent Tests" />
+                            <Label fx:id="testCountLabel" styleClass="stat-value" text="1" />
+                        </VBox>
+                    </HBox>
+                </StackPane>
+            </GridPane>
+
+            <!-- Recent Activity -->
+            <VBox styleClass="recent-activity">
+                <Label styleClass="section-title" text="Recent Activity" />
+                <ListView fx:id="recentActivityList" prefHeight="150" styleClass="activity-list" />
+            </VBox>
+
+            <!-- Upcoming Appointments -->
+            <VBox styleClass="upcoming-appointments">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label styleClass="section-title" text="Upcoming Appointments" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="add-button" onAction="#handleNewAppointment" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 8 12;">
+                        <graphic>
+                            <HBox spacing="8" alignment="CENTER">
+                                <SVGPath content="M12 4v16m8-8H4" fill="white" />
+                                <Label text="New Appointment" textFill="white" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </HBox>
+                <TableView fx:id="appointmentsTable" styleClass="appointments-table">
+                    <columns>
+                        <TableColumn fx:id="dateColumn" prefWidth="120" text="Date" />
+                        <TableColumn fx:id="timeColumn" prefWidth="100" text="Time" />
+                        <TableColumn fx:id="doctorColumn" prefWidth="150" text="Doctor" />
+                        <TableColumn fx:id="departmentColumn" prefWidth="150" text="Department" />
+                        <TableColumn fx:id="statusColumn" prefWidth="120" text="Status" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

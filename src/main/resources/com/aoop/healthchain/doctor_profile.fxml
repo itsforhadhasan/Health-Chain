@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.DoctorProfileController">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar">
+            <HBox alignment="CENTER">
+                <ImageView fitHeight="80" fitWidth="80" styleClass="profile-image">
+                    <Image url="@images/default_male.png" />
+                </ImageView>
+            </HBox>
+
+            <Label fx:id="doctorNameLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-name" text="Dr. John Smith" />
+            <Label fx:id="doctorEmailLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-email" text="doctor@healthchain.com" />
+
+            <VBox styleClass="menu-items">
+                <Button onAction="#handleDashboard" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" fill="#cbd5e1" />
+                            <Label text="Dashboard" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handlePatients" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" fill="#cbd5e1" />
+                            <Label text="My Patients" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleAppointments" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" fill="#cbd5e1" />
+                            <Label text="Appointments" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleSchedule" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" fill="#cbd5e1" />
+                            <Label text="Schedule" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleReports" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" fill="#cbd5e1" />
+                            <Label text="Reports" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+
+                <Button onAction="#handleSettings" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <SVGPath content="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" fill="#cbd5e1" />
+                            <Label text="Settings" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button onAction="#handleLogout" styleClass="logout-button">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <SVGPath content="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" fill="white" />
+                        <Label text="Logout" styleClass="logout-label" textFill="white" />
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox styleClass="main-content">
+            <!-- Header -->
+            <HBox styleClass="header">
+                <Label styleClass="page-title" text="My Profile" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="edit-button" onAction="#handleEditProfile" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 8 12;">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <SVGPath content="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" fill="white" />
+                            <Label text="Edit Profile" textFill="white" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <!-- Profile Information -->
+            <GridPane styleClass="profile-container" hgap="20" vgap="20">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+
+                <!-- Profile Picture Section -->
+                <StackPane styleClass="profile-picture-section" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                    <VBox alignment="CENTER" spacing="20">
+                        <ImageView fx:id="profileImageView" fitHeight="200" fitWidth="200" styleClass="large-profile-image">
+                            <Image url="@images/default_male.png" />
+                        </ImageView>
+                        <Button styleClass="change-photo-button" onAction="#handleChangePhoto" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 8 16;">
+                            <graphic>
+                                <HBox spacing="8" alignment="CENTER">
+                                    <SVGPath content="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" fill="white" />
+                                    <Label text="Change Photo" textFill="white" />
+                                </HBox>
+                            </graphic>
+                        </Button>
+                    </VBox>
+                </StackPane>
+
+                <!-- Personal Information -->
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label styleClass="section-title" text="Personal Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="fullNameLabel" text="Dr. John Smith" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+
+                        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="emailLabel" text="doctor@healthchain.com" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+
+                        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label" />
+                        <Label fx:id="phoneLabel" text="+1 (555) 123-4567" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="field-value" />
+
+                        <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="field-label" />
+                        <Label fx:id="dobLabel" text="January 15, 1985" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+
+                <!-- Professional Information -->
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label styleClass="section-title" text="Professional Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <Label text="Specialization:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="specializationLabel" text="Cardiology" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+
+                        <Label text="License Number:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="licenseLabel" text="MD123456" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+
+                        <Label text="Experience:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label" />
+                        <Label fx:id="experienceLabel" text="15 years" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="field-value" />
+
+                        <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="field-label" />
+                        <Label fx:id="statusLabel" text="Active" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+
+                <!-- Contact Information -->
+                <VBox styleClass="info-section" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label styleClass="section-title" text="Contact Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="addressLabel" text="123 Medical Center Dr, Suite 456" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+
+                        <Label text="City:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="cityLabel" text="New York, NY 10001" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+
+                        <Label text="Emergency Contact:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label" />
+                        <Label fx:id="emergencyContactLabel" text="+1 (555) 987-6543" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+
+                <!-- Work Schedule -->
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <Label styleClass="section-title" text="Work Schedule" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <Label text="Working Days:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="workingDaysLabel" text="Monday - Friday" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+
+                        <Label text="Working Hours:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="workingHoursLabel" text="9:00 AM - 5:00 PM" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+
+                        <Label text="Consultation Time:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label" />
+                        <Label fx:id="consultationTimeLabel" text="30 minutes" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane> 

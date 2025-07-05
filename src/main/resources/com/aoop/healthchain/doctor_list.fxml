@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.DoctorListController">
+   <!-- Left Sidebar -->
+   <left>
+      <VBox styleClass="sidebar">
+         <HBox alignment="CENTER">
+            <ImageView fitHeight="80" fitWidth="80" styleClass="profile-image">
+               <Image url="@images/default_male.png" />
+            </ImageView>
+         </HBox>
+
+         <Label fx:id="hospitalNameLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-name" text="General Hospital" />
+         <Label fx:id="hospitalEmailLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-email" text="contact@generalhospital.com" />
+
+         <VBox styleClass="menu-items">
+            <Button onAction="#handleDashboard" styleClass="menu-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <SVGPath content="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" fill="#cbd5e1" />
+                     <Label styleClass="menu-label" text="Dashboard" />
+                  </HBox>
+               </graphic>
+            </Button>
+
+            <Button onAction="#handleDoctors" styleClass="menu-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <SVGPath content="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="#cbd5e1" />
+                     <Label styleClass="menu-label" text="Doctors" />
+                  </HBox>
+               </graphic>
+            </Button>
+
+            <Button onAction="#handlePatients" styleClass="menu-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10" />
+               </graphic>
+            </Button>
+
+            <Button onAction="#handleDepartments" styleClass="menu-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10" />
+               </graphic>
+            </Button>
+
+            <Button onAction="#handleSettings" styleClass="menu-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10" />
+               </graphic>
+            </Button>
+         </VBox>
+
+         <Region VBox.vgrow="ALWAYS" />
+
+         <Button onAction="#handleLogout" styleClass="logout-button">
+            <graphic>
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <SVGPath content="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" fill="white" />
+                  <Label styleClass="logout-label" text="Logout" textFill="white" />
+               </HBox>
+            </graphic>
+         </Button>
+      </VBox>
+   </left>
+   <center>
+      <VBox styleClass="main-content">
+         <HBox styleClass="header">
+            <Label styleClass="page-title" text="Doctor Management" />
+            <Region HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchField" promptText="Search doctors..." styleClass="search-field" />
+            <Button onAction="#handleCreateDoctor" style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 8 12;" styleClass="add-button">
+               <graphic>
+                  <HBox alignment="CENTER" spacing="8">
+                     <SVGPath content="M12 6v6m0 0v6m0-6h6m-6 0H6" fill="white" />
+                     <Label text="Add Doctor" textFill="white" />
+                  </HBox>
+               </graphic>
+            </Button>
+         </HBox>
+
+         <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="doctors-scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox fx:id="doctorsContainer" styleClass="doctors-container" spacing="10" />
+         </ScrollPane>
+      </VBox>
+   </center>
+</BorderPane>

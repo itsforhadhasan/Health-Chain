@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.HospitalPatientsController" spacing="20" alignment="TOP_CENTER" style="-fx-padding: 24;">
+    <Label text="Patients" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search patients..." style="-fx-font-size: 14px; -fx-padding: 8px; -fx-border-color: #d1d5db; -fx-border-radius: 4;"/>
+        <Button fx:id="addPatientButton" text="Add Patient" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 8;">
+            <graphic>
+                <SVGPath content="M12 6v6m0 0v6m0-6h6m-6 0H6" fill="white"/>
+            </graphic>
+        </Button>
+    </HBox>
+    <TableView fx:id="patientsTable" prefHeight="500" prefWidth="950" styleClass="patients-table">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="60" text="ID"/>
+            <TableColumn fx:id="nameColumn" prefWidth="180" text="Name"/>
+            <TableColumn fx:id="emailColumn" prefWidth="200" text="Email"/>
+            <TableColumn fx:id="phoneColumn" prefWidth="120" text="Phone"/>
+            <TableColumn fx:id="bloodGroupColumn" prefWidth="100" text="Blood Group"/>
+            <TableColumn fx:id="statusColumn" prefWidth="100" text="Status"/>
+            <TableColumn fx:id="actionsColumn" prefWidth="150" text="Actions"/>
+        </columns>
+    </TableView>
+</VBox>

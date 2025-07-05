@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.PatientPortalController">
+    <left>
+        <VBox styleClass="sidebar" spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+            <Label fx:id="patientNameLabel" styleClass="user-name" text="Patient Name" />
+            <Label fx:id="patientEmailLabel" styleClass="user-email" text="patient@email.com" />
+            <VBox styleClass="menu-items" spacing="8" alignment="TOP_LEFT" style="-fx-padding: 25 0;">
+                <Button onAction="#handleProfile" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="My Profile" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button onAction="#handleAppointments" styleClass="menu-button">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Appointments" styleClass="menu-label" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <Button onAction="#handleLogout" styleClass="logout-button" text="Logout" />
+        </VBox>
+    </left>
+    <center>
+        <StackPane fx:id="mainContent" />
+    </center>
+</BorderPane> 

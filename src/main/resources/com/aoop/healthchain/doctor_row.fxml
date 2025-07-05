@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox styleClass="doctor-row" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.DoctorRowController">
+   <HBox styleClass="doctor-row-content" spacing="15">
+      <!-- Doctor Avatar -->
+      <VBox alignment="CENTER" styleClass="doctor-avatar-container">
+         <ImageView fx:id="doctorAvatar" fitHeight="60" fitWidth="60" styleClass="doctor-avatar">
+            <Image url="@images/default_male.png" />
+         </ImageView>
+      </VBox>
+
+      <!-- Doctor Information -->
+      <VBox styleClass="doctor-info" VBox.vgrow="ALWAYS">
+         <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label fx:id="doctorNameLabel" styleClass="doctor-name" text="Dr. John Smith" />
+            <Label fx:id="doctorIdLabel" styleClass="doctor-id" text="#001" />
+         </HBox>
+         
+         <HBox alignment="CENTER_LEFT" spacing="20" styleClass="doctor-details">
+            <HBox alignment="CENTER_LEFT" spacing="5">
+               <SVGPath content="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" fill="#6b7280" />
+               <Label fx:id="doctorEmailLabel" styleClass="doctor-email" text="john.smith@hospital.com" />
+            </HBox>
+            
+            <HBox alignment="CENTER_LEFT" spacing="5">
+               <SVGPath content="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" fill="#6b7280" />
+               <Label fx:id="doctorPhoneLabel" styleClass="doctor-phone" text="+1 (555) 123-4567" />
+            </HBox>
+         </HBox>
+         
+         <HBox alignment="CENTER_LEFT" spacing="15" styleClass="doctor-specialization">
+            <HBox alignment="CENTER_LEFT" spacing="5">
+               <SVGPath content="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" fill="#6b7280" />
+               <Label fx:id="doctorSpecializationLabel" styleClass="doctor-specialization-text" text="Cardiology" />
+            </HBox>
+            
+            <HBox alignment="CENTER_LEFT" spacing="5">
+               <SVGPath content="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="#6b7280" />
+               <Label fx:id="doctorLicenseLabel" styleClass="doctor-license" text="License: MD123456" />
+            </HBox>
+         </HBox>
+      </VBox>
+
+      <!-- Status Badge -->
+      <VBox alignment="CENTER" styleClass="status-container">
+         <Label fx:id="statusBadge" styleClass="status-badge" text="Active" />
+      </VBox>
+
+      <!-- Action Buttons -->
+      <VBox alignment="CENTER" styleClass="actions-container">
+         <HBox spacing="8" styleClass="action-buttons">
+            <Button fx:id="viewButton" onAction="#handleView" styleClass="action-button view-button">
+               <graphic>
+                  <HBox alignment="CENTER" spacing="5">
+                     <SVGPath content="M15 12a3 3 0 11-6 0 3 3 0 016 0z" fill="white" />
+                     <Label text="View" textFill="white" />
+                  </HBox>
+               </graphic>
+            </Button>
+            
+            <Button fx:id="editButton" onAction="#handleEdit" styleClass="action-button edit-button">
+               <graphic>
+                  <HBox alignment="CENTER" spacing="5">
+                     <SVGPath content="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" fill="white" />
+                     <Label text="Edit" textFill="white" />
+                  </HBox>
+               </graphic>
+            </Button>
+            
+            <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="action-button delete-button">
+               <graphic>
+                  <HBox alignment="CENTER" spacing="5">
+                     <SVGPath content="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" fill="white" />
+                     <Label text="Delete" textFill="white" />
+                  </HBox>
+               </graphic>
+            </Button>
+         </HBox>
+      </VBox>
+   </HBox>
+</VBox> 

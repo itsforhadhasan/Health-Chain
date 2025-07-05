@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="root" stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.AdminDoctorListController">
+   <center>
+      <VBox styleClass="main-content">
+         <HBox styleClass="header">
+            <Label styleClass="page-title" text="Doctor Management" />
+            <Region HBox.hgrow="ALWAYS" />
+         </HBox>
+         <HBox alignment="CENTER_LEFT" spacing="15.0">
+            <children>
+               <TextField fx:id="searchField" promptText="Search doctors..." styleClass="search-field" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </HBox>
+         <ScrollPane fitToWidth="true" styleClass="main-scroll-pane">
+            <content>
+               <FlowPane fx:id="doctorsCardPane" hgap="20.0" styleClass="doctors-card-pane" vgap="20.0" />
+            </content>
+         </ScrollPane>
+      </VBox>
+   </center>
+   <left>
+      <VBox styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="80" fitWidth="80" styleClass="profile-image">
+                     <image>
+                        <Image url="@images/default_male.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label fx:id="userNameLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-name" text="Admin User" />
+            <Label fx:id="userEmailLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-email" text="admin@healthchain.com" />
+            <VBox styleClass="menu-items">
+               <children>
+                  <Button onAction="#handleDashboard" styleClass="menu-button">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                           <children>
+                              <SVGPath content="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" fill="WHITE" />
+                              <Label styleClass="menu-label" text="Dashboard">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button onAction="#handleHospitals" styleClass="menu-button">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                           <children>
+                              <SVGPath content="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" fill="#cbd5e1" />
+                              <Label styleClass="menu-label" text="Hospitals" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button onAction="#handleDoctors" styleClass="menu-button">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                           <children>
+                              <SVGPath content="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="#cbd5e1" />
+                              <Label styleClass="menu-label" text="Doctors" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button onAction="#handleSettings" styleClass="menu-button">
+                     <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                           <children>
+                              <SVGPath content="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" fill="#cbd5e1" />
+                              <Label styleClass="menu-label" text="Settings" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <Button onAction="#handleLogout" styleClass="logout-button">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <children>
+                        <SVGPath content="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" fill="white" />
+                        <Label styleClass="logout-label" text="Logout" textFill="white" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

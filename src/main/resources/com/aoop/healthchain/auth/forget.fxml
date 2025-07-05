@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="514.0" prefWidth="500" spacing="10.0" style="-fx-background-color: #d3dee1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.auth.ForgetPasswordController">
+   <padding>
+      <Insets top="40.0" />
+   </padding>
+   <children>
+      <ImageView fitHeight="121.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/a-modern-logo-design-featuring-interlock_hYG_qQLNQgWLcALzeK93Xw_6NKVJ-gVSTO-mIIuAkIC6w-removebg.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" spacing="10">
+         <children>
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #606060;" text="Emergency and General Hospital" />
+         </children>
+      </VBox>
+      <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Forget Password?" />
+      <Label style="-fx-font-size: 14px; -fx-text-fill: #606060;" text="Enter your email address for receive verification code." />
+      <VBox spacing="15.0">
+         <children>
+            <TextField fx:id="emailField" prefWidth="250" promptText="someone@domain.com" />
+         </children>
+         <padding>
+            <Insets left="80.0" right="80.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER_LEFT" spacing="10" />
+      <Button onAction="#sendCode" prefWidth="250" style="-fx-background-color: #008cba; -fx-text-fill: white;" text="Send Verification Code" />
+   </children>
+</VBox>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.PatientChatController">
+    
+    <!-- Left Sidebar - Doctor List -->
+    <left>
+        <VBox styleClass="chat-sidebar" prefWidth="300">
+            <HBox styleClass="chat-header" alignment="CENTER_LEFT">
+                <Label styleClass="chat-title" text="Chat with Doctors" />
+            </HBox>
+            
+            <TextField fx:id="searchDoctorsField" promptText="Search doctors..." styleClass="search-field" />
+            
+            <ListView fx:id="doctorsListView" styleClass="doctors-list" VBox.vgrow="ALWAYS">
+                <!-- Doctors will be populated here -->
+            </ListView>
+        </VBox>
+    </left>
+    
+    <!-- Center - Chat Area -->
+    <center>
+        <VBox styleClass="chat-main">
+            <!-- Chat Header -->
+            <HBox styleClass="chat-conversation-header">
+                <ImageView fx:id="selectedDoctorImage" fitHeight="40" fitWidth="40" styleClass="chat-avatar">
+                    <Image url="@images/default_male.png" />
+                </ImageView>
+                <VBox styleClass="chat-user-info">
+                    <Label fx:id="selectedDoctorName" styleClass="chat-user-name" text="Select a doctor to start chatting" />
+                    <Label fx:id="selectedDoctorStatus" styleClass="chat-user-status" text="Offline" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="callButton" styleClass="chat-action-button" onAction="#handleCall">
+                    <graphic>
+                        <SVGPath content="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" fill="#3b82f6" />
+                    </graphic>
+                </Button>
+                <Button fx:id="videoCallButton" styleClass="chat-action-button" onAction="#handleVideoCall">
+                    <graphic>
+                        <SVGPath content="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" fill="#3b82f6" />
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <!-- Messages Area -->
+            <ScrollPane fx:id="messagesScrollPane" styleClass="messages-scroll-pane" VBox.vgrow="ALWAYS">
+                <VBox fx:id="messagesContainer" styleClass="messages-container">
+                    <!-- Messages will be added here dynamically -->
+                </VBox>
+            </ScrollPane>
+            
+            <!-- Message Input Area -->
+            <HBox styleClass="message-input-container">
+                <TextField fx:id="messageInputField" promptText="Type your message..." styleClass="message-input" HBox.hgrow="ALWAYS" onAction="#handleSendMessage" />
+                <Button fx:id="sendButton" styleClass="send-button" onAction="#handleSendMessage">
+                    <graphic>
+                        <SVGPath content="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" fill="white" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane> 

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+<BorderPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" stylesheets="@./DashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.PatientProfileController">
+    <left>
+        <VBox styleClass="sidebar">
+            <HBox alignment="CENTER">
+                <ImageView fitHeight="80" fitWidth="80" styleClass="profile-image">
+                    <Image url="@images/default_male.png" />
+                </ImageView>
+            </HBox>
+            <Label fx:id="patientNameLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-name" text="Patient Name" />
+            <Label fx:id="patientEmailLabel" alignment="CENTER" maxWidth="Infinity" styleClass="user-email" text="patient@email.com" />
+            <Region VBox.vgrow="ALWAYS" />
+            <Button onAction="#handleBack" styleClass="menu-button">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <SVGPath content="M10 19l-7-7 7-7" fill="#cbd5e1" />
+                        <Label text="Back" styleClass="menu-label" />
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+    <center>
+        <VBox styleClass="main-content">
+            <HBox styleClass="header">
+                <Label styleClass="page-title" text="Patient Profile" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+            <GridPane styleClass="profile-container" hgap="20" vgap="20">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+                <StackPane styleClass="profile-picture-section" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+                    <VBox alignment="CENTER" spacing="20">
+                        <ImageView fx:id="profileImageView" fitHeight="200" fitWidth="200" styleClass="large-profile-image">
+                            <Image url="@images/default_male.png" />
+                        </ImageView>
+                        <Button styleClass="change-photo-button" onAction="#handleChangePhoto" style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-background-radius: 4; -fx-padding: 8 16;">
+                            <graphic>
+                                <HBox spacing="8" alignment="CENTER">
+                                    <SVGPath content="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" fill="white" />
+                                    <Label text="Change Photo" textFill="white" />
+                                </HBox>
+                            </graphic>
+                        </Button>
+                    </VBox>
+                </StackPane>
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label styleClass="section-title" text="Personal Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                        <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="fullNameLabel" text="Patient Name" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+                        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="emailLabel" text="patient@email.com" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+                        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="field-label" />
+                        <Label fx:id="phoneLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="field-value" />
+                        <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="field-label" />
+                        <Label fx:id="dobLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label styleClass="section-title" text="Medical Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                        <Label text="Blood Group:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="bloodGroupLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+                        <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="field-label" />
+                        <Label fx:id="statusLabel" text="Active" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+                <VBox styleClass="info-section" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <Label styleClass="section-title" text="Contact Information" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40" />
+                            <ColumnConstraints percentWidth="60" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+                        <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="field-label" />
+                        <Label fx:id="addressLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="field-value" />
+                    </GridPane>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane> 

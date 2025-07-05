@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aoop.healthchain.DoctorAppointmentsController" spacing="20" alignment="TOP_CENTER" style="-fx-padding: 24;">
+    <Label text="My Appointments" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+    <TableView fx:id="appointmentsTable" prefHeight="400" prefWidth="900">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100"/>
+            <TableColumn fx:id="patientColumn" text="Patient" prefWidth="180"/>
+            <TableColumn fx:id="purposeColumn" text="Purpose" prefWidth="180"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="180"/>
+        </columns>
+    </TableView>
+</VBox> 
